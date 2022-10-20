@@ -15,6 +15,7 @@ public class Aula09 {
         
         l[1].folhear(199);
         l[1].avancarPag();
+        l[1].abrir();
         l[1].detalhes();
         
     }

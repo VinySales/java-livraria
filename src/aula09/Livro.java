@@ -9,22 +9,22 @@ package aula09;
  *
  * @author vinys
  */
-public class Livro implements Publicacao{
+public class Livro implements Publicacao {
+
     private Pessoa leitor;
-    private String titulo, autor;
+    private String titulo, autor, aberto;
     private int totalPaginas, paginaAtual;
-    private boolean aberto;
 
     public Livro(Pessoa leitor, String titulo, String autor, int totalPaginas) {
         this.leitor = leitor;
         this.titulo = titulo;
         this.autor = autor;
         this.totalPaginas = totalPaginas;
-        this.aberto = false;
+        this.aberto = "Não";
         this.paginaAtual = 0;
     }
-    
-    public void detalhes(){
+
+    public void detalhes() {
         System.out.println("Título: " + this.getTitulo());
         System.out.println("Autor: " + this.getAutor());
         System.out.println("Total de páginas: " + this.getTotalPaginas());
@@ -73,27 +73,24 @@ public class Livro implements Publicacao{
         this.paginaAtual = paginaAtual;
     }
 
-    public boolean isAberto() {
+    public String isAberto() {
         return aberto;
     }
 
-    public void setAberto(boolean aberto) {
+    public void setAberto(String aberto) {
         this.aberto = aberto;
     }
 
-    @Override
     public void abrir() {
-        this.aberto = true;
+        this.aberto = "Sim";
     }
 
-    @Override
     public void fechar() {
-        this.aberto = false;
+        this.aberto = "Não";
     }
 
-    @Override
     public void folhear(int p) {
-        if (this.getTotalPaginas()>= p) {
+        if (this.getTotalPaginas() >= p) {
             this.paginaAtual = p;
         } else {
             System.out.println("impossível folhear");
@@ -101,19 +98,17 @@ public class Livro implements Publicacao{
 
     }
 
-    @Override
     public void avancarPag() {
         if (this.getTotalPaginas() == this.getPaginaAtual()) {
             System.out.println("Impossível avançar");
         } else {
             this.paginaAtual++;
         }
-            
+
     }
 
-    @Override
     public void voltarPag() {
         this.paginaAtual--;
     }
-    
+
 }
